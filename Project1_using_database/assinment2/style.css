@@ -1,0 +1,204 @@
+
+.left{
+    border-radius: 10px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.formh2{
+    margin-top:20px;
+    margin-bottom: 60px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.right{
+    
+   height: 100%;
+    /* background-color: #dadce0; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.main{
+    height: 600px;
+    width: 400px;
+}
+
+.newE{
+    font-family: system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            'Open Sans',
+            'Helvetica Neue',
+            sans-serif;
+    color:black;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+        
+    
+}
+.inputs{   
+    font-family: system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            'Open Sans',
+            'Helvetica Neue',
+            sans-serif;
+    
+    border: none;
+    border-bottom: 1px solid black;
+    background:none;
+    font-size: 20px;
+    margin-left: 20px;
+    outline: 0;
+    width: 400px;
+}
+.gen{
+    display: flex;
+    justify-content: space-evenly;
+}
+.submitbtn{
+    margin-top: 1rem;
+    font-size: 15px;
+    background: rgb(218, 35, 35);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+    transition: all 0.5s;
+    font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+.submitbtn:hover {
+    transform: scale(1.1);
+}
+.refresh{
+    margin-top: 1rem;
+        font-size: 15px;
+        background: rgb(0, 187, 255);
+        color: white;
+        border-radius: 20px;
+        border: none;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 50px;
+        padding-right: 50px;
+        transition: all 0.5s;
+        font-family: system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            'Open Sans',
+            'Helvetica Neue',
+            sans-serif;
+}
+.text{
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    
+}
+.font-sanserif{
+font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+.para{
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    font-size: 20px;
+    font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    
+}
+.textright{
+    color: black;
+    font-family: system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    text-decoration: underline ;
+}
+
+.set{
+    display: flex;
+    justify-content: space-around;
+}
+
+#edit{
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+}
+#delete{
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+} 
+
+@media screen and(min-width:768px) {
+
+    body{
+        height: 50vh;
+       
+    }
+}
