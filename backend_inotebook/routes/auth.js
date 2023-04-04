@@ -82,4 +82,54 @@ router.post(                  //send data using post reqvesy
   }
 );
 
+
+router.post(
+  //send data using post reqvesy
+  //it using express validator
+  "/loginuser",
+  [
+    body("email", "enter valid email").isLength({ min: 5 }),
+    body("password", "enter valid password").exists()
+  ],
+  async (req, res) => {
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {email,password}= req.body;
+    //eslint-disable-next-line no-undef
+    try {
+      let user = await User.findOne({email}); //check whether the email is exists already
+  
+      if (!user) {
+        return res.status(400).json({ error: "sorry user already exists"});
+      }
+
+      let passwordcompare= await bcrypt.compare(password,user.password);
+      
+      if(!passwordcompare)
+      {
+        return res.status(400).json({ error: "please try to login with correct credential" });
+      }
+      const data = {
+        //method of json web tokan return secret code
+        user: {
+          id: user.id, //in mango id has index and retrive data very fast for using id
+        },
+      };
+
+      const authtokan = jwt.sign(data, jwt_SECRET);
+      console.log(authtokan);
+
+      //res.send(req.body);
+      //res.json(user);
+      res.json({ authtokan });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("some error occured");
+    }
+  }
+);
+
 module.exports = router;
