@@ -9,6 +9,7 @@ const fetchuser=require("../middleware/fetchuser");
 
 const jwt_SECRET = "surajisgoodboy";
 
+//Testing route -1
 // router.post(
 //   "/",(req, res) => {
 //     //     let obj={
@@ -22,7 +23,7 @@ const jwt_SECRET = "surajisgoodboy";
 //     res.send(req.body);
 //    });
 
-//Route:1-create a user using:POST "/api/auth/createuser".Doesn't require Auth
+//Testing route -2
 router.get("/data", (req, res) => {
   //send data to database using get reqvest
   // eslint-disable-next-line no-undef
@@ -32,6 +33,7 @@ router.get("/data", (req, res) => {
   res.send(req.body);
 });
 
+//Route:1-create a user using:POST "/api/auth/createuser".Doesn't require Auth
 router.post(
   //send data using post reqvesy
   //it using express validator
@@ -42,6 +44,7 @@ router.post(
     body("password", "enter valid password").isLength({ min: 5 }),
   ],
   async (req, res) => {
+    let success = false;
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -79,7 +82,8 @@ router.post(
 
       //res.send(req.body);
       //res.json(user);
-      res.json({ authtokan });
+      success=true;
+      res.json({success,authtokan });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("some error occured");
@@ -97,6 +101,7 @@ router.post(
     body("password", "enter valid password").exists(),
   ],
   async (req, res) => {
+    let success=false;
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -114,9 +119,10 @@ router.post(
       let passwordcompare = await bcrypt.compare(password, user.password); //check password match or not using destructuring
 
       if (!passwordcompare) {
+        success=false;
         return res
           .status(400)
-          .json({ error: "please try to login with correct credential" });
+          .json({success, error: "please try to login with correct credential" });
       }
       const data = {
         //method of json web tokan return secret code
@@ -130,7 +136,8 @@ router.post(
 
       //res.send(req.body);
       //res.json(user);
-      res.json({ authtokan }); //send response
+      success=true;
+      res.json({success, authtokan }); //send response
     } catch (error) {
       console.error(error.message);
       res.status(500).send("some error occured");
